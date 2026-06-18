@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="text-center py-20">
+    <section className="bg-white text-black dark:bg-gray-900 dark:text-white py-20 text-center transition-colors duration-300">
       <h1 className="text-5xl font-bold">
         Find Your Perfect Homestay
       </h1>
@@ -9,7 +9,7 @@ export default function Hero() {
         Book comfortable stays at affordable prices.
       </p>
 
-      <button className="bg-blue-500 text-white px-6 py-3 rounded mt-6">
+      <button  className="bg-gray-100 dark:bg-gray-800 text-black dark:text-white p-8">
         Explore Now
       </button>
     </section>

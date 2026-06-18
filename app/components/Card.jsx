@@ -3,7 +3,7 @@ export default function Card({
   description = "A cozy place with beautiful mountain views.",
 }) {
   return (
-    <div className="border rounded-lg p-4 shadow-md m-4">
+    <div  className="bg-white dark:bg-gray-700 text-black dark:text-white p-4 rounded-lg shadow">
       <h2 className="text-xl font-semibold">{title}</h2>
       <p className="text-gray-600 mt-2">{description}</p>
 

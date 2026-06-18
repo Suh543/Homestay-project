@@ -2,16 +2,11 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 export default function Dashboard() {
   return (
-    <div>
-      <Navbar />
-      
-      <main className="p-8">
-        {/* Your existing dashboard content goes here */}
-        <h1>Dashboard</h1>
-        <p>Welcome to your user dashboard!</p>
-      </main>
-
-      <Footer />
-    </div>
+    <main className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white p-8 transition-colors duration-300">
+      <h1 className="text-3xl font-bold">Dashboard</h1>
+      <p className="text-gray-600 dark:text-gray-300">
+        This is our dashboard page.
+      </p>
+    </main>
   );
 }

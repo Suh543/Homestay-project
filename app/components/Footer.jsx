@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white p-6 mt-10">
+    <footer className="bg-gray-200 dark:bg-gray-800 text-black dark:text-white p-4 text-center">
       <div className="flex justify-between">
         <p>© 2026 Homestay</p>
 
