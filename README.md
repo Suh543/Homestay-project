@@ -39,3 +39,34 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # Homestay-project
 My first Github Project
 0ead0cec05be4d0b74af50ab47dd016b0855a3d6
+## How to Run Backend Locally
+
+1. Open a terminal and navigate to the backend folder:
+
+```bash
+cd backend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env` file in the backend folder and add:
+
+```env
+PORT=5000
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+5. Open the API in your browser or Postman:
+
+```text
+http://localhost:5000/api/homestays
+```
