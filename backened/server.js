@@ -7,10 +7,13 @@ const homestayRoutes = require("./routes/homestayRoutes");
 
 const app = express();
 
+
+
 app.use(cors());
 app.use(express.json());
 
 app.use("/api/homestays", homestayRoutes);
+
 
 app.use((req, res) => {
   res.status(404).json({
