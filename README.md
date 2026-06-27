@@ -36,7 +36,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 =======
-# Homestay-project
+# Stayora
 My first Github Project
 0ead0cec05be4d0b74af50ab47dd016b0855a3d6
 ## How to Run Backend Locally

@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex flex-wrap items-center justify-between p-4 shadow-md dark:bg-gray-800">
-      <h1 className="text-2xl font-bold">Homestay</h1>
+      <h1 className="text-2xl font-bold">Stayora</h1>
 
       <ul className="flex gap-6">
         <li><Link href="/">Home</Link></li>

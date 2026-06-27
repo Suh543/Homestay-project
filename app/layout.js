@@ -3,10 +3,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer.jsx";
 
 export const metadata = {
-  title: "Homestay",
-  description: "Homestay Project",
+  title: "Stayora",
+  description: "Where Every Stay Feels Like Home.",
 };
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
