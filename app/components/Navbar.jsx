@@ -26,22 +26,64 @@ export default function Navbar() {
   }, [darkMode]);
 
   return (
-    <nav className="flex flex-wrap items-center justify-between p-4 shadow-md dark:bg-gray-800">
-      <h1 className="text-2xl font-bold">Stayora</h1>
+    <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md transition-all duration-300">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
 
-      <ul className="flex gap-6">
-        <li><Link href="/">Home</Link></li>
-        <li><Link href="/about">About</Link></li>
-        <li><Link href="/dashboard">Dashboard</Link></li>
-        <li><Link href="/login">Login</Link></li>
-      </ul>
+        {/* Logo */}
+        <Link href="/">
+          <h1 className="text-3xl font-extrabold tracking-wide text-blue-600 dark:text-emerald-400 cursor-pointer">
+            Stayora
+          </h1>
+        </Link>
 
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="rounded border px-3 py-1 dark:border-gray-300"
-      >
-        {darkMode ? "Light Mode" : "Dark Mode"}
-      </button>
+        {/* Navigation */}
+        <ul className="flex items-center gap-8 text-gray-700 dark:text-gray-200 font-medium">
+          <li>
+            <Link
+              href="/"
+              className="hover:text-blue-600 dark:hover:text-emerald-400 transition duration-300"
+            >
+              Home
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/about"
+              className="hover:text-blue-600 dark:hover:text-emerald-400 transition duration-300"
+            >
+              About
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/dashboard"
+              className="hover:text-blue-600 dark:hover:text-emerald-400 transition duration-300"
+            >
+              Dashboard
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/login"
+              className="hover:text-blue-600 dark:hover:text-emerald-400 transition duration-300"
+            >
+              Login
+            </Link>
+          </li>
+        </ul>
+
+        {/* Dark Mode Button */}
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2 font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-emerald-500 transition duration-300"
+        >
+          {darkMode ? "☀ Light" : "🌙 Dark"}
+        </button>
+
+      </div>
     </nav>
   );
 }
