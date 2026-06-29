@@ -1,76 +1,94 @@
-const homestays = require("../data/homestays");
+const supabase = require("../config/supabase");
 
-const getAllHomestays = (req, res) => {
-  res.status(200).json(homestays);
+// GET ALL
+const getAllHomestays = async (req, res) => {
+  const { data, error } = await supabase
+    .from("homestays")
+    .select("*");
+
+  if (error) {
+    return res.status(500).json(error);
+  }
+
+  res.status(200).json(data);
 };
 
-const getHomestayById = (req, res) => {
-  const homestay = homestays.find(
-    (item) => item.id === Number(req.params.id)
-  );
+// GET BY ID
+const getHomestayById = async (req, res) => {
+  const { data, error } = await supabase
+    .from("homestays")
+    .select("*")
+    .eq("id", req.params.id)
+    .single();
 
-  if (!homestay) {
+  if (error) {
     return res.status(404).json({
-      message: "Homestay not found"
+      message: "Homestay not found",
     });
   }
 
-  res.status(200).json(homestay);
+  res.status(200).json(data);
 };
 
-const createHomestay = (req, res) => {
-  const newHomestay = {
-    id: homestays.length + 1,
-    ...req.body
-  };
+// CREATE
+const createHomestay = async (req, res) => {
+  const { data, error } = await supabase
+    .from("homestays")
+    .insert([req.body])
+    .select();
 
-  homestays.push(newHomestay);
-
-  res.status(201).json(newHomestay);
-};
-
-const updateHomestay = (req, res) => {
-  const homestay = homestays.find(
-    (item) => item.id === Number(req.params.id)
-  );
-
-  if (!homestay) {
-    return res.status(404).json({
-      message: "Homestay not found"
-    });
+  if (error) {
+    return res.status(500).json(error);
   }
 
-  Object.assign(homestay, req.body);
-
-  res.status(200).json(homestay);
+  res.status(201).json(data);
 };
 
-const deleteHomestay = (req, res) => {
-  const index = homestays.findIndex(
-    (item) => item.id === Number(req.params.id)
-  );
+// UPDATE
+const updateHomestay = async (req, res) => {
+  const { data, error } = await supabase
+    .from("homestays")
+    .update(req.body)
+    .eq("id", req.params.id)
+    .select();
 
-  if (index === -1) {
-    return res.status(404).json({
-      message: "Homestay not found"
-    });
+  if (error) {
+    return res.status(500).json(error);
   }
 
-  homestays.splice(index, 1);
+  res.status(200).json(data);
+};
+
+// DELETE
+const deleteHomestay = async (req, res) => {
+  const { error } = await supabase
+    .from("homestays")
+    .delete()
+    .eq("id", req.params.id);
+
+  if (error) {
+    return res.status(500).json(error);
+  }
 
   res.status(200).json({
-    message: "Homestay deleted"
+    message: "Homestay deleted",
   });
 };
 
-const searchHomestays = (req, res) => {
-  const city = req.query.city;
+// SEARCH
+const searchHomestays = async (req, res) => {
+  const location = req.query.location;
 
-  const result = homestays.filter(
-    (item) => item.city.toLowerCase() === city.toLowerCase()
-  );
+  const { data, error } = await supabase
+    .from("homestays")
+    .select("*")
+    .ilike("location", `%${location}%`);
 
-  res.status(200).json(result);
+  if (error) {
+    return res.status(500).json(error);
+  }
+
+  res.status(200).json(data);
 };
 
 module.exports = {
@@ -79,5 +97,5 @@ module.exports = {
   createHomestay,
   updateHomestay,
   deleteHomestay,
-  searchHomestays
+  searchHomestays,
 };

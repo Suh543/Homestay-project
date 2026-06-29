@@ -1,72 +1,170 @@
- HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Stayora 🏡
 
-## Getting Started
+Stayora is a full-stack homestay booking platform developed as part of my internship project. It allows users to explore homestays, while the backend provides REST APIs connected to a real PostgreSQL database hosted on Supabase.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- Browse homestays
+- Search homestays by location
+- Create new homestays
+- Update homestay details
+- Delete homestays
+- RESTful API architecture
+- PostgreSQL database integration using Supabase
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js
+- React
+- Tailwind CSS
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- PostgreSQL (Supabase)
+
+---
+
+## 📂 Project Structure
+
+```
+stayora/
+│
+├── app/
+├── public/
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── routes/
+│   ├── data/
+│   ├── .env.example
+│   └── server.js
+│
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🗄️ Database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses **PostgreSQL** hosted on **Supabase**.
 
-## Learn More
+### Why PostgreSQL + Supabase?
 
-To learn more about Next.js, take a look at the following resources:
+- Cloud-hosted database
+- Reliable and scalable
+- Easy integration with Express.js
+- Supports SQL queries and relationships
+- Free tier suitable for development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📊 Database Schema
 
-## Deploy on Vercel
+| Column | Type |
+|---------|------|
+| id | UUID (Primary Key) |
+| title | TEXT |
+| location | TEXT |
+| price | INT8 |
+| rating | NUMERIC |
+| description | TEXT |
+| image | TEXT |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# Homestay-project
-My first Github Project
-0ead0cec05be4d0b74af50ab47dd016b0855a3d6
-## How to Run Backend Locally
+## ⚙️ Environment Variables
 
-1. Open a terminal and navigate to the backend folder:
+Create a `.env` file inside the backend folder.
+
+```env
+PORT=5000
+
+SUPABASE_URL=your_supabase_project_url
+
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+```
+
+---
+
+## 📦 Installation
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Go to backend
 
 ```bash
 cd backend
 ```
 
-2. Install dependencies:
+Install dependencies
 
 ```bash
 npm install
 ```
 
-3. Create a `.env` file in the backend folder and add:
+Run backend
 
-```env
-PORT=5000
+```bash
+npm start
 ```
 
-4. Start the development server:
+Run frontend
 
 ```bash
 npm run dev
 ```
 
-5. Open the API in your browser or Postman:
+---
 
-```text
-http://localhost:5000/api/homestays
+## 📡 API Endpoints
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/homestays |
+| GET | /api/homestays/:id |
+| GET | /api/homestays/search?location=Goa |
+| POST | /api/homestays |
+| PUT | /api/homestays/:id |
+| DELETE | /api/homestays/:id |
+
+
+## 📊 Database Schema
+
+```mermaid
+erDiagram
+    HOMESTAYS {
+        UUID id PK
+        TEXT title
+        TEXT location
+        INT8 price
+        NUMERIC rating
+        TEXT description
+        TEXT image
+    }
 ```
+
+---
+
+## 👩‍💻 Author
+
+**Suhani Garg**
+
+Stayora – Full Stack Homestay Booking Platform
+
+Built using:
+- Next.js
+- Express.js
+- PostgreSQL (Supabase)
+- Tailwind CSS
